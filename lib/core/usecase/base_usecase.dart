@@ -4,13 +4,14 @@ import 'package:equatable/equatable.dart';
 
 import '../error/failure.dart';
 
-abstract class Usecase<Type, Params>{
+/// Blue print for usecase
+abstract class UseCase<Type, Params> {
+  /// Forward usecase classes to repositories
   Future<Either<Failure, Type>> call(Params params);
 }
 
-
-// Params blue print for usecase without parameters
-class NoParams extends Equatable{
+/// Used when usecase doesn't take any parameters
+class NoParams extends Equatable {
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }
