@@ -2,9 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:expert_robot/core/error/exception.dart';
 import 'package:expert_robot/core/error/failure.dart';
 import 'package:expert_robot/core/platform/network.dart';
-import 'package:expert_robot/core/weather/domain/entities/forecast.dart';
-import 'package:expert_robot/core/weather/domain/repositories/forecast_repo.dart';
 
+
+import '../../domain/entities/forecast.dart';
+import '../../domain/repositories/forecast_repo.dart';
 import '../database/forecast_remote_database.dart';
 
 /// Concrete Implementation of the [ForecastRepository] class

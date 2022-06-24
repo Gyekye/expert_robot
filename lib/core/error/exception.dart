@@ -13,5 +13,5 @@ class DeviceException implements Exception {
   /// Convert error messages from api
   factory DeviceException.fromJson(Map<String, dynamic> json,
       {int code = 404}) =>
-      DeviceException(json['message'] as String, statusCode: code);
+      DeviceException(json['error'] as String, statusCode: code);
 }

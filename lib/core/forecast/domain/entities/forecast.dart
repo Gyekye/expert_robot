@@ -11,7 +11,7 @@ class Forecast with _$Forecast {
   const factory Forecast({
     required List<Weather> weather,
     required String base,
-    required Main main,
+    // required Main main,
     required int visibility,
     required Wind wind,
     required int dt,
@@ -24,6 +24,26 @@ class Forecast with _$Forecast {
 
   factory Forecast.fromJson(Map<String, dynamic> json) =>
       _$ForecastFromJson(json);
+
+  /// Initial state with dummy data
+  factory Forecast.initial() => const Forecast(
+        weather: [
+          Weather(
+            main: '',
+            description: '',
+            icon: '',
+          )
+        ],
+        base: '',
+        visibility: 10000,
+        wind: Wind(speed: 200.2, deg: 33),
+        dt: 360000,
+        sys: Sys(country: '', sunrise: 38000, sunset: 45000),
+        timezone: 200000,
+        id: 2299999,
+        name: '',
+        cod: 200,
+      );
 }
 
 /// Weather part of forecast
@@ -54,8 +74,6 @@ class Wind with _$Wind {
 @freezed
 class Sys with _$Sys {
   const factory Sys({
-    required int type,
-    required int id,
     required String country,
     required int sunrise,
     required int sunset,
@@ -73,7 +91,8 @@ class Main with _$Main {
     @JsonKey(name: 'feelslike') required double feelsLike,
     // ignore: invalid_annotation_target
     @JsonKey(name: 'tempmin') required double tempMin,
-    required int tempMax,
+    // ignore: invalid_annotation_target
+    @JsonKey(name: 'temp_max') required int tempMax,
     required int pressure,
     required int humidity,
   }) = _Main;

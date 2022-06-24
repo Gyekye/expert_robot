@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:expert_robot/core/data/api_keys.dart';
+import 'package:expert_robot/core/error/exception.dart';
 import 'package:expert_robot/core/error/failure.dart';
-import 'package:expert_robot/core/weather/domain/entities/forecast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+
+import '../../domain/entities/forecast.dart';
 
 /// Remote Database for Forecast
 
@@ -25,7 +27,11 @@ class ForecastRemoteDatabaseImpl implements ForecastRemoteDatabase {
   Future<Forecast> getForecastBySearch(String query) async {
     final response = await client.get(
       // Url
-      Uri.parse(ApiKeys.url + query),
+      Uri.parse(ApiKeys.url+query),
+      headers: {
+        'X-RapidAPI-Key': ApiKeys.openWeather,
+        'X-RapidAPI-Host':ApiKeys.host,
+      }
     );
     // Is response Ok ?
     if (response.statusCode == 200) {
@@ -35,7 +41,7 @@ class ForecastRemoteDatabaseImpl implements ForecastRemoteDatabase {
       }
       return results;
     } else {
-      throw const Failure('Failed to retrieve forecast');
+      throw  DeviceException.fromJson(jsonDecode(response.body));
     }
   }
 }
