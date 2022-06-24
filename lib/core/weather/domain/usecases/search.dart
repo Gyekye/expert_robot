@@ -19,7 +19,7 @@ class GetForecastBySearch
 
   @override
   Future<Either<Failure, Forecast>> call(GetForecastBySearchParams params) {
-    return repository.getForecast(params.query);
+    return repository.getForecastBySearch(params.query);
   }
 }
 

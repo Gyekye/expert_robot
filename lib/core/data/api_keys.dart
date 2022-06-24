@@ -6,5 +6,5 @@ class ApiKeys {
   /// API HOST
   static String host = 'community-open-weather-map.p.rapidapi.com';
   /// API ENDPOINT
-  static String url = 'https://community-open-weather-map.p.rapidapi.com/weather';
+  static String url = 'https://community-open-weather-map.p.rapidapi.com/weather?q=';
 }

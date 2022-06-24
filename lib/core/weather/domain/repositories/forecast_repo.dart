@@ -7,5 +7,5 @@ import '../entities/forecast.dart';
 /// Each contract returns either a [Forecast] or a [Failure]
 abstract class ForecastRepository {
   // Get forecast by search e.g city or state
-  Future<Either<Failure, Forecast>> getForecast(String query);
+  Future<Either<Failure, Forecast>> getForecastBySearch(String query);
 }
