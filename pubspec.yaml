@@ -1,5 +1,5 @@
 name: expert_robot
-description: A new Flutter project.
+description: A weather forecase app.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -36,6 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
   dartz: ^0.10.1
+  freezed: ^2.0.3+1
+  build_runner: ^2.1.11
+  json_serializable: ^6.2.0
+  json_annotation: ^4.5.0
+  freezed_annotation: ^2.0.3
 
 dev_dependencies:
   flutter_test:
