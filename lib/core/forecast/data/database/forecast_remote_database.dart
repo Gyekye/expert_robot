@@ -27,7 +27,7 @@ class ForecastRemoteDatabaseImpl implements ForecastRemoteDatabase {
   Future<Forecast> getForecastBySearch(String query) async {
     final response = await client.get(
       // Url
-      Uri.parse(ApiKeys.url+query),
+      Uri.parse('${ApiKeys.url}$query&units=metric'),
       headers: {
         'X-RapidAPI-Key': ApiKeys.openWeather,
         'X-RapidAPI-Host':ApiKeys.host,
@@ -41,7 +41,7 @@ class ForecastRemoteDatabaseImpl implements ForecastRemoteDatabase {
       }
       return results;
     } else {
-      throw  DeviceException.fromJson(jsonDecode(response.body));
+      throw  const DeviceException('Could not retrieve weather forecast');
     }
   }
 }

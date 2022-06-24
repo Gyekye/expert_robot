@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('London, GB'),
         actions: [
           IconButton(onPressed: ()async {
-            await bloc.retrieveForecast('Lagos');
+            await bloc.retrieveForecast('Accra');
           }, icon: const Icon(Icons.search_outlined))
         ],
       ),

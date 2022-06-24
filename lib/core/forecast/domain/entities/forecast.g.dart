@@ -19,6 +19,7 @@ _$_Forecast _$$_ForecastFromJson(Map<String, dynamic> json) => _$_Forecast(
       id: json['id'] as int,
       name: json['name'] as String,
       cod: json['cod'] as int,
+      main: Main.fromJson(json['main'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ForecastToJson(_$_Forecast instance) =>
@@ -33,6 +34,7 @@ Map<String, dynamic> _$$_ForecastToJson(_$_Forecast instance) =>
       'id': instance.id,
       'name': instance.name,
       'cod': instance.cod,
+      'main': instance.main,
     };
 
 _$_Weather _$$_WeatherFromJson(Map<String, dynamic> json) => _$_Weather(
@@ -72,18 +74,12 @@ Map<String, dynamic> _$$_SysToJson(_$_Sys instance) => <String, dynamic>{
 
 _$_Main _$$_MainFromJson(Map<String, dynamic> json) => _$_Main(
       temp: (json['temp'] as num).toDouble(),
-      feelsLike: (json['feelslike'] as num).toDouble(),
-      tempMin: (json['tempmin'] as num).toDouble(),
-      tempMax: json['temp_max'] as int,
       pressure: json['pressure'] as int,
       humidity: json['humidity'] as int,
     );
 
 Map<String, dynamic> _$$_MainToJson(_$_Main instance) => <String, dynamic>{
       'temp': instance.temp,
-      'feelslike': instance.feelsLike,
-      'tempmin': instance.tempMin,
-      'temp_max': instance.tempMax,
       'pressure': instance.pressure,
       'humidity': instance.humidity,
     };

@@ -8,42 +8,42 @@ part 'forecast.g.dart';
 
 @freezed
 class Forecast with _$Forecast {
-  const factory Forecast({
-    required List<Weather> weather,
-    required String base,
-    // required Main main,
-    required int visibility,
-    required Wind wind,
-    required int dt,
-    required Sys sys,
-    required int timezone,
-    required int id,
-    required String name,
-    required int cod,
-  }) = _Forecast;
+  const factory Forecast(
+      {required List<Weather> weather,
+      required String base,
+      // required Main main,
+      required int visibility,
+      required Wind wind,
+      required int dt,
+      required Sys sys,
+      required int timezone,
+      required int id,
+      required String name,
+      required int cod,
+      required Main main}) = _Forecast;
 
   factory Forecast.fromJson(Map<String, dynamic> json) =>
       _$ForecastFromJson(json);
 
   /// Initial state with dummy data
   factory Forecast.initial() => const Forecast(
-        weather: [
-          Weather(
-            main: '',
-            description: '',
-            icon: '',
-          )
-        ],
-        base: '',
-        visibility: 10000,
-        wind: Wind(speed: 200.2, deg: 33),
-        dt: 360000,
-        sys: Sys(country: '', sunrise: 38000, sunset: 45000),
-        timezone: 200000,
-        id: 2299999,
-        name: '',
-        cod: 200,
-      );
+          weather: [
+            Weather(
+              main: '',
+              description: '',
+              icon: '',
+            )
+          ],
+          base: '',
+          visibility: 10000,
+          wind: Wind(speed: 200.2, deg: 33),
+          dt: 360000,
+          sys: Sys(country: '', sunrise: 38000, sunset: 45000),
+          timezone: 200000,
+          id: 2299999,
+          name: '',
+          cod: 200,
+          main: Main(temp: 20.45, pressure: 23, humidity: 33));
 }
 
 /// Weather part of forecast
@@ -87,12 +87,6 @@ class Sys with _$Sys {
 class Main with _$Main {
   const factory Main({
     required double temp,
-    // ignore: invalid_annotation_target
-    @JsonKey(name: 'feelslike') required double feelsLike,
-    // ignore: invalid_annotation_target
-    @JsonKey(name: 'tempmin') required double tempMin,
-    // ignore: invalid_annotation_target
-    @JsonKey(name: 'temp_max') required int tempMax,
     required int pressure,
     required int humidity,
   }) = _Main;

@@ -30,6 +30,7 @@ mixin _$Forecast {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get cod => throw _privateConstructorUsedError;
+  Main get main => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,10 +52,12 @@ abstract class $ForecastCopyWith<$Res> {
       int timezone,
       int id,
       String name,
-      int cod});
+      int cod,
+      Main main});
 
   $WindCopyWith<$Res> get wind;
   $SysCopyWith<$Res> get sys;
+  $MainCopyWith<$Res> get main;
 }
 
 /// @nodoc
@@ -77,6 +80,7 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? cod = freezed,
+    Object? main = freezed,
   }) {
     return _then(_value.copyWith(
       weather: weather == freezed
@@ -119,6 +123,10 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
           ? _value.cod
           : cod // ignore: cast_nullable_to_non_nullable
               as int,
+      main: main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as Main,
     ));
   }
 
@@ -133,6 +141,13 @@ class _$ForecastCopyWithImpl<$Res> implements $ForecastCopyWith<$Res> {
   $SysCopyWith<$Res> get sys {
     return $SysCopyWith<$Res>(_value.sys, (value) {
       return _then(_value.copyWith(sys: value));
+    });
+  }
+
+  @override
+  $MainCopyWith<$Res> get main {
+    return $MainCopyWith<$Res>(_value.main, (value) {
+      return _then(_value.copyWith(main: value));
     });
   }
 }
@@ -153,12 +168,15 @@ abstract class _$$_ForecastCopyWith<$Res> implements $ForecastCopyWith<$Res> {
       int timezone,
       int id,
       String name,
-      int cod});
+      int cod,
+      Main main});
 
   @override
   $WindCopyWith<$Res> get wind;
   @override
   $SysCopyWith<$Res> get sys;
+  @override
+  $MainCopyWith<$Res> get main;
 }
 
 /// @nodoc
@@ -183,6 +201,7 @@ class __$$_ForecastCopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? cod = freezed,
+    Object? main = freezed,
   }) {
     return _then(_$_Forecast(
       weather: weather == freezed
@@ -225,6 +244,10 @@ class __$$_ForecastCopyWithImpl<$Res> extends _$ForecastCopyWithImpl<$Res>
           ? _value.cod
           : cod // ignore: cast_nullable_to_non_nullable
               as int,
+      main: main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as Main,
     ));
   }
 }
@@ -242,7 +265,8 @@ class _$_Forecast implements _Forecast {
       required this.timezone,
       required this.id,
       required this.name,
-      required this.cod})
+      required this.cod,
+      required this.main})
       : _weather = weather;
 
   factory _$_Forecast.fromJson(Map<String, dynamic> json) =>
@@ -274,10 +298,12 @@ class _$_Forecast implements _Forecast {
   final String name;
   @override
   final int cod;
+  @override
+  final Main main;
 
   @override
   String toString() {
-    return 'Forecast(weather: $weather, base: $base, visibility: $visibility, wind: $wind, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
+    return 'Forecast(weather: $weather, base: $base, visibility: $visibility, wind: $wind, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod, main: $main)';
   }
 
   @override
@@ -295,7 +321,8 @@ class _$_Forecast implements _Forecast {
             const DeepCollectionEquality().equals(other.timezone, timezone) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.cod, cod));
+            const DeepCollectionEquality().equals(other.cod, cod) &&
+            const DeepCollectionEquality().equals(other.main, main));
   }
 
   @JsonKey(ignore: true)
@@ -311,7 +338,8 @@ class _$_Forecast implements _Forecast {
       const DeepCollectionEquality().hash(timezone),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(cod));
+      const DeepCollectionEquality().hash(cod),
+      const DeepCollectionEquality().hash(main));
 
   @JsonKey(ignore: true)
   @override
@@ -335,7 +363,8 @@ abstract class _Forecast implements Forecast {
       required final int timezone,
       required final int id,
       required final String name,
-      required final int cod}) = _$_Forecast;
+      required final int cod,
+      required final Main main}) = _$_Forecast;
 
   factory _Forecast.fromJson(Map<String, dynamic> json) = _$_Forecast.fromJson;
 
@@ -359,6 +388,8 @@ abstract class _Forecast implements Forecast {
   String get name => throw _privateConstructorUsedError;
   @override
   int get cod => throw _privateConstructorUsedError;
+  @override
+  Main get main => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ForecastCopyWith<_$_Forecast> get copyWith =>
@@ -838,16 +869,7 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Main {
-  double get temp =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
-  @JsonKey(name: 'feelslike')
-  double get feelsLike =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
-  @JsonKey(name: 'tempmin')
-  double get tempMin =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
-  @JsonKey(name: 'temp_max')
-  int get tempMax => throw _privateConstructorUsedError;
+  double get temp => throw _privateConstructorUsedError;
   int get pressure => throw _privateConstructorUsedError;
   int get humidity => throw _privateConstructorUsedError;
 
@@ -860,13 +882,7 @@ mixin _$Main {
 abstract class $MainCopyWith<$Res> {
   factory $MainCopyWith(Main value, $Res Function(Main) then) =
       _$MainCopyWithImpl<$Res>;
-  $Res call(
-      {double temp,
-      @JsonKey(name: 'feelslike') double feelsLike,
-      @JsonKey(name: 'tempmin') double tempMin,
-      @JsonKey(name: 'temp_max') int tempMax,
-      int pressure,
-      int humidity});
+  $Res call({double temp, int pressure, int humidity});
 }
 
 /// @nodoc
@@ -880,9 +896,6 @@ class _$MainCopyWithImpl<$Res> implements $MainCopyWith<$Res> {
   @override
   $Res call({
     Object? temp = freezed,
-    Object? feelsLike = freezed,
-    Object? tempMin = freezed,
-    Object? tempMax = freezed,
     Object? pressure = freezed,
     Object? humidity = freezed,
   }) {
@@ -891,18 +904,6 @@ class _$MainCopyWithImpl<$Res> implements $MainCopyWith<$Res> {
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
-      feelsLike: feelsLike == freezed
-          ? _value.feelsLike
-          : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMin: tempMin == freezed
-          ? _value.tempMin
-          : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMax: tempMax == freezed
-          ? _value.tempMax
-          : tempMax // ignore: cast_nullable_to_non_nullable
-              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -920,13 +921,7 @@ abstract class _$$_MainCopyWith<$Res> implements $MainCopyWith<$Res> {
   factory _$$_MainCopyWith(_$_Main value, $Res Function(_$_Main) then) =
       __$$_MainCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {double temp,
-      @JsonKey(name: 'feelslike') double feelsLike,
-      @JsonKey(name: 'tempmin') double tempMin,
-      @JsonKey(name: 'temp_max') int tempMax,
-      int pressure,
-      int humidity});
+  $Res call({double temp, int pressure, int humidity});
 }
 
 /// @nodoc
@@ -941,9 +936,6 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res>
   @override
   $Res call({
     Object? temp = freezed,
-    Object? feelsLike = freezed,
-    Object? tempMin = freezed,
-    Object? tempMax = freezed,
     Object? pressure = freezed,
     Object? humidity = freezed,
   }) {
@@ -952,18 +944,6 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res>
           ? _value.temp
           : temp // ignore: cast_nullable_to_non_nullable
               as double,
-      feelsLike: feelsLike == freezed
-          ? _value.feelsLike
-          : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMin: tempMin == freezed
-          ? _value.tempMin
-          : tempMin // ignore: cast_nullable_to_non_nullable
-              as double,
-      tempMax: tempMax == freezed
-          ? _value.tempMax
-          : tempMax // ignore: cast_nullable_to_non_nullable
-              as int,
       pressure: pressure == freezed
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
@@ -980,29 +960,12 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Main implements _Main {
   const _$_Main(
-      {required this.temp,
-      @JsonKey(name: 'feelslike') required this.feelsLike,
-      @JsonKey(name: 'tempmin') required this.tempMin,
-      @JsonKey(name: 'temp_max') required this.tempMax,
-      required this.pressure,
-      required this.humidity});
+      {required this.temp, required this.pressure, required this.humidity});
 
   factory _$_Main.fromJson(Map<String, dynamic> json) => _$$_MainFromJson(json);
 
   @override
   final double temp;
-// ignore: invalid_annotation_target
-  @override
-  @JsonKey(name: 'feelslike')
-  final double feelsLike;
-// ignore: invalid_annotation_target
-  @override
-  @JsonKey(name: 'tempmin')
-  final double tempMin;
-// ignore: invalid_annotation_target
-  @override
-  @JsonKey(name: 'temp_max')
-  final int tempMax;
   @override
   final int pressure;
   @override
@@ -1010,7 +973,7 @@ class _$_Main implements _Main {
 
   @override
   String toString() {
-    return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity)';
+    return 'Main(temp: $temp, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -1019,9 +982,6 @@ class _$_Main implements _Main {
         (other.runtimeType == runtimeType &&
             other is _$_Main &&
             const DeepCollectionEquality().equals(other.temp, temp) &&
-            const DeepCollectionEquality().equals(other.feelsLike, feelsLike) &&
-            const DeepCollectionEquality().equals(other.tempMin, tempMin) &&
-            const DeepCollectionEquality().equals(other.tempMax, tempMax) &&
             const DeepCollectionEquality().equals(other.pressure, pressure) &&
             const DeepCollectionEquality().equals(other.humidity, humidity));
   }
@@ -1031,9 +991,6 @@ class _$_Main implements _Main {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(temp),
-      const DeepCollectionEquality().hash(feelsLike),
-      const DeepCollectionEquality().hash(tempMin),
-      const DeepCollectionEquality().hash(tempMax),
       const DeepCollectionEquality().hash(pressure),
       const DeepCollectionEquality().hash(humidity));
 
@@ -1051,9 +1008,6 @@ class _$_Main implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {required final double temp,
-      @JsonKey(name: 'feelslike') required final double feelsLike,
-      @JsonKey(name: 'tempmin') required final double tempMin,
-      @JsonKey(name: 'temp_max') required final int tempMax,
       required final int pressure,
       required final int humidity}) = _$_Main;
 
@@ -1061,15 +1015,6 @@ abstract class _Main implements Main {
 
   @override
   double get temp => throw _privateConstructorUsedError;
-  @override // ignore: invalid_annotation_target
-  @JsonKey(name: 'feelslike')
-  double get feelsLike => throw _privateConstructorUsedError;
-  @override // ignore: invalid_annotation_target
-  @JsonKey(name: 'tempmin')
-  double get tempMin => throw _privateConstructorUsedError;
-  @override // ignore: invalid_annotation_target
-  @JsonKey(name: 'temp_max')
-  int get tempMax => throw _privateConstructorUsedError;
   @override
   int get pressure => throw _privateConstructorUsedError;
   @override
